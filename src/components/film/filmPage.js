@@ -9,15 +9,18 @@ function FilmPage({ filmId }) {
   const [state, dispatch] = useReducer(filmFetchReducer, initialState);
   useEffect(() => {
     let didCancel = false;
-    getFilmById(dispatch, didCancel, filmId);
+    if(!state.filmPage.title) {
+      getFilmById(dispatch, didCancel, filmId);
+    }
     return () => (didCancel = true);
   });
 
+
   return (
-    <div className="page">
+    <div className="page page--single">
       <A href="/">Back to home</A>
       <h1>Title: {state.filmPage.title}</h1>
-      <img src={`${POSTER_URL}${state.filmPage.poster_path}`} alt={state.filmPage.poster_path} />
+      <img src={`${POSTER_URL}${state.filmPage.poster_path}`} alt={state.filmPage.poster_path} className="page__poster" />
       <p>Synopsis: {state.filmPage.overview}</p>
     </div>
   );

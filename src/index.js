@@ -7,10 +7,11 @@ import routes from './router';
 import Header from './components/header/header';
 import NoPageFound from './components/NoPageFound';
 
-import './index.css';
+import './index.scss';
 
 function App() {
   const routeResult = useRoutes(routes);
+
   return (
     <div className="App">
       <Header />

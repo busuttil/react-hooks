@@ -1,0 +1,27 @@
+.card {
+    width: 45%;
+    padding: 10px;
+
+    text-align: center;
+  text-decoration: none;
+
+  > img {
+    width: 80%;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  h1 , p {
+    color: black;
+  }
+
+  &:hover, &:focus {
+    background-color: #333333;
+    h1, p {
+      color: white;
+    }
+  }
+
+}

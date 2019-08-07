@@ -1,7 +1,7 @@
 import React from 'react';
 import { A } from 'hookrouter';
 
-import './header.css';
+import './header.scss';
 
 const Header = () => (
   <div className="header">

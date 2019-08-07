@@ -2,7 +2,7 @@ import React from 'react';
 import { POSTER_URL } from '../../utils';
 import { A } from 'hookrouter';
 
-import './card.css';
+import './card.scss';
 
 const FilmCard = ({ film }) => (
   <A href={`/film/${film.id}`} className="card">
