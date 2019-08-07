@@ -5,7 +5,7 @@ import FilmCard from './filmCard';
 import { filmFetchReducer, initialState } from './store/film.reducer';
 import { fetchFilms } from './store/film.actions';
 
-function Films() {
+export const Films = () => {
   const [state, dispatch] = useReducer(filmFetchReducer, initialState);
   useEffect(() => {
     let didCancel = false;
@@ -24,6 +24,6 @@ function Films() {
       )}
     </div>
   );
-}
+};
 
 export default Films;
