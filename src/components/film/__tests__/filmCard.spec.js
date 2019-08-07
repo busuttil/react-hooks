@@ -1,25 +1,18 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-Enzyme.configure({ adapter: new Adapter() });
+import { mount } from 'enzyme';
 
 import FilmCard from '../filmCard';
 
 describe('FilmCard', () => {
-  let props = {
-    film: {
-      id: 1,
-      title: 'title',
-      vote_average: 10,
-    },
-  };
+  let props;
+  beforeEach(() => {
+    props = { film: {}};
+  });
 
-  const getWrapper = () => shallow(<FilmCard {...props} />);
+  const getWrapper = () => mount(<FilmCard {...props} />);
 
   it('render card', () => {
-    expect(getWrapper());
+    props.film = {id: 1, title: "aaa"};
+    expect(getWrapper().find('h1')).toHaveLength(1);
   });
 });

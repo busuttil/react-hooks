@@ -1,11 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-Enzyme.configure({ adapter: new Adapter() });
-
 import { Films } from '../films';
 import { filmFetchReducer } from '../store/film.reducer';
 import { FETCH_INIT, FETCH_SUCCESS } from '../store/film.actions';
