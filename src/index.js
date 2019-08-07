@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { useRoutes } from 'hookrouter';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import routes from './router';
+import Header from './components/header/header';
+import NoPageFound from './components/NoPageFound';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+import './index.css';
+
+function App() {
+  const routeResult = useRoutes(routes);
+  return (
+    <div className="App">
+      <Header />
+      {routeResult || <NoPageFound />}
+    </div>
+  );
+}
+
+const rootElement = document.getElementById('root');
+
+ReactDOM.render(<App />, rootElement);
 serviceWorker.unregister();

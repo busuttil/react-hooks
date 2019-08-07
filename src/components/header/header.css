@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    justify-content: center;
+    background: #EAEAEA;
+    height: 50px;
+}
+
+.header-link {
+    margin: auto;
+    color: black;
+    text-decoration: none;
+}
+
+.header-link:hover, .header-link:focus {
+    text-decoration: underline;
+}
