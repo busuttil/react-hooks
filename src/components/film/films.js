@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 
 import FilmCard from './filmCard';
 import { filmFetchReducer, initialState } from './store/film.reducer';
@@ -7,12 +7,11 @@ import { fetchFilms } from './store/film.actions';
 
 function Films() {
   const [state, dispatch] = useReducer(filmFetchReducer, initialState);
+  const [didCancel, setdidCancel] = useState(false);
   useEffect(() => {
-    let didCancel = false;
     fetchFilms(dispatch, didCancel);
-
-    return () => (didCancel = true);
-  }, []);
+    setdidCancel(true);
+  }, [didCancel]);
 
   return (
     <div className="page">
