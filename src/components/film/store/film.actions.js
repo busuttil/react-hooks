@@ -26,10 +26,10 @@ export const getFilmById = async (dispatch, didCancel, filmId) => {
   try {
     const result = await fetch(`https://api.themoviedb.org/3/movie/${filmId}?api_key=${API_KEY}`);
     const response = await result.json();
-    if (!didCancel) {
-      dispatch({ type: GET_FILM_BY_ID, payload: response });
-    } else {
+    if (didCancel) {
       dispatch({ type: RESET_FILM_BY_ID });
+    } else {
+      dispatch({ type: GET_FILM_BY_ID, payload: response });
     }
   } catch (error) {
     if (!didCancel) {
