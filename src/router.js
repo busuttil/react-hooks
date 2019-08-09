@@ -1,12 +1,12 @@
 import React from 'react';
 import Films from './components/film/films';
 import FilmPage from './components/film/filmPage';
-import Counter from './components/counter';
+import Search from './components/search/search';
 
 const routes = {
   '/': () => <Films />,
   '/film/:id': ({ id }) => <FilmPage filmId={id} />,
-  '/counter': () => <Counter />,
+  '/search': () => <Search />,
 };
 
 export default routes;

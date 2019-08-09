@@ -1,4 +1,4 @@
-import { API_KEY, BASE_URL } from '../../../utils';
+import { BASE_URL, FILM_ID_URL } from '../../../utils';
 
 export const FETCH_INIT = 'FETCH_INIT';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
@@ -24,7 +24,7 @@ export const fetchFilms = async (dispatch, didCancel) => {
 
 export const getFilmById = async (dispatch, didCancel, filmId) => {
   try {
-    const result = await fetch(`https://api.themoviedb.org/3/movie/${filmId}?api_key=${API_KEY}`);
+    const result = await fetch(FILM_ID_URL(filmId));
     const response = await result.json();
     if (didCancel) {
       dispatch({ type: RESET_FILM_BY_ID });

@@ -4,7 +4,7 @@ import { A } from 'hookrouter';
 import { filmFetchReducer, initialState } from './store/film.reducer';
 import { getFilmById } from './store/film.actions';
 
-function FilmPage({ filmId }) {
+const FilmPage = ({ filmId }) => {
   const [state, dispatch] = useReducer(filmFetchReducer, initialState);
   useEffect(() => {
     let didCancel = false;
@@ -26,6 +26,6 @@ function FilmPage({ filmId }) {
       <p>Synopsis: {state.filmPage.overview}</p>
     </div>
   );
-}
+};
 
 export default FilmPage;
